@@ -1,5 +1,7 @@
 package Pro.sky.java.course1.homework1;
 
+import java.util.Objects;
+
 public class Book {
     private String bookTitle;
     private Author author;
@@ -27,5 +29,21 @@ public class Book {
 
     public void setPublicationYear(int publicationYear) {
         this.publicationYear = publicationYear;
+    }
+
+    public String toString() {
+        return "Название книги - " + this.bookTitle + " Автор - " + author.toString() + " Год издания - " + this.publicationYear;
+    }
+
+    public boolean equals(Book book) {
+        if (this.author.equals(book.author) && this.bookTitle.equals(book.bookTitle) && this.publicationYear == book.publicationYear) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookTitle, author, publicationYear);
     }
 }
